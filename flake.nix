@@ -10,6 +10,9 @@
       imports = [ ./flake-module.nix ];
       perSystem = { self', config, pkgs, ... }: {
         foo.whatever = {
+          imports =
+            let defaults = { a = [ 24 ]; };
+            in [ defaults ];
           a = [ 42 ];
         };
 
